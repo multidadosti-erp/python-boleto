@@ -14,6 +14,7 @@ import string
 import sys
 import codecs
 import base64
+import locale
 
 from itertools import chain
 if sys.version_info < (3,):
@@ -244,9 +245,10 @@ class BoletoHTML(object):
                 fd.write(self.html)
 
     def _formataValorParaExibir(self, nfloat):
+        locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
         if nfloat:
-            txt = nfloat
-            txt = txt.replace('.', ',')
+            nfloat = float(nfloat)
+            txt = locale.currency(nfloat, grouping=True, symbol=None)
         else:
             txt = ""
         return txt
