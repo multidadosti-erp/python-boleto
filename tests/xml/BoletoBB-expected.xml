@@ -24,7 +24,7 @@
     <text font="0" height="8" left="658" top="547" width="82">(=) Valor documento</text>
     <text font="1" height="12" left="169" top="558" width="15">18</text>
     <text font="1" height="12" left="254" top="558" width="17">R$</text>
-    <text font="1" height="12" left="791" top="558" width="49">2952,95</text>
+    <text font="1" height="12" left="788" top="558" width="53">2.952,95</text>
     <text font="0" height="8" left="38" top="520" width="79">Data do documento</text>
     <text font="0" height="8" left="169" top="520" width="69">N. do documento</text>
     <text font="0" height="8" left="339" top="520" width="49">Esp&#233;cie doc</text>
@@ -76,6 +76,6 @@
     <text font="1" height="12" left="573" top="-172" width="38">87654</text>
     <text font="1" height="12" left="722" top="-172" width="68">08/03/2011</text>
     <text font="1" height="12" left="41" top="-145" width="48"> -  -  -  - </text>
-    <text font="1" height="12" left="722" top="-145" width="49">2952,95</text>
+    <text font="1" height="12" left="722" top="-145" width="53">2.952,95</text>
   </page>
 </pdf2xml>
