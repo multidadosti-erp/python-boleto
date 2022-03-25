@@ -43,7 +43,7 @@ class BoletoPDF(object):
         self.height_line = 6.5 * mm
         self.space = 2
         self.font_size_title = 6
-        self.font_size_value = 9
+        self.font_size_value = 8
         self.delta_title = self.height_line - (self.font_size_title + 1)
         self.delta_font = self.font_size_value + 1
 
@@ -318,13 +318,14 @@ class BoletoPDF(object):
         )
 
         # Values
-        self.pdf_canvas.setFont('Helvetica', 9)
+        self.pdf_canvas.setFont('Helvetica', 8)
         heigh_font = 9 + 1
 
+        cedente = boleto_dados.cedente
         self.pdf_canvas.drawString(
             0 + self.space,
             (((linha_inicial + 2) * self.height_line)) + self.space,
-            boleto_dados.cedente
+            cedente[:44] + ('...' if len(cedente) > 44 else '')
         )
         self.pdf_canvas.drawString(
             self.width - (30 * mm) - (35 * mm) - (40 * mm) + self.space,
