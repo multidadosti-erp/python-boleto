@@ -193,13 +193,16 @@ class BoletoData(object):
                 ('valor_documento', -1, str),
                 ('campo_livre', 25, str)]:
             value = getattr(self, attr)
+
             if not isinstance(value, data_type):
                 raise TypeError("%s.%s must be a %s, got %r (type %s)" % (
                     self.__class__.__name__, attr, data_type.__name__, value,
                     type(value).__name__))
+
             if (data_type == str and
                     length != -1 and
                     len(value) != length):
+
                 raise ValueError(
                     "%s.%s must have a length of %d, not %r (len: %d)" %
                     (self.__class__.__name__,
@@ -209,10 +212,16 @@ class BoletoData(object):
                      len(value)))
 
         due_date_days = (self.data_vencimento - _EPOCH).days
-        if not (9999 >= due_date_days >= 0):
-            raise TypeError(
-                "Invalid date, must be between 1997/07/01 and "
-                "2024/11/15")
+
+        if due_date_days < 0:
+            raise TypeError("Invalid date, must be between 1997/07/01 and now")  # noqa
+
+        # the due_date_days reset to 1000 after 9999
+        if due_date_days > 9999:
+            minimal_limit = 999
+
+            due_date_days = int(minimal_limit + (due_date_days - minimal_limit) % (9999 - minimal_limit))  # noqa
+
         num = "%s%1s%04d%010d%24s" % (self.codigo_banco,
                                       self.moeda,
                                       due_date_days,
