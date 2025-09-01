@@ -131,37 +131,55 @@ class BoletoData(object):
         #        the barcode.
         self.aceite = kwargs.pop('aceite', "N")
         self.agencia_cedente = kwargs.pop('agencia_cedente', "")
+        self.agencia_digito_cedente = kwargs.pop('agencia_digito_cedente', "")
         self.carteira = kwargs.pop('carteira', "")
         self.cedente = kwargs.pop('cedente', "")
+        self.cedente_cnpj = kwargs.pop('cedente_cnpj', "")
         self.cedente_cidade = kwargs.pop('cedente_cidade', "")
         self.cedente_uf = kwargs.pop('cedente_uf', "")
         self.cedente_logradouro = kwargs.pop('cedente_logradouro', "")
+        self.cedente_logradouro_ns = kwargs.pop('cedente_logradouro_ns', "")
+        self.cedente_numero = kwargs.pop('cedente_numero', "")
+        self.cedente_complemento = kwargs.pop('cedente_complemento', "")
         self.cedente_bairro = kwargs.pop('cedente_bairro', "")
         self.cedente_cep = kwargs.pop('cedente_cep', "")
         self.cedente_documento = kwargs.pop('cedente_documento', "")
         self.codigo_banco = kwargs.pop('codigo_banco', "")
+        self.codigo_banco_acbr = kwargs.pop('codigo_banco_acbr', "")
         self.conta_cedente = kwargs.pop('conta_cedente', "")
+        self.conta_digito_cedente = kwargs.pop('conta_digito_cedente', "")
+        self.cedente_convenio = kwargs.pop('cedente_convenio', "")
+        self.cedente_codigo_convenio = kwargs.pop('cedente_codigo_convenio', "")
+        self.cedente_modalidade = kwargs.pop('cedente_modalidade', "")
+        self.cedente_telefone = kwargs.pop('cedente_telefone', "")
+        self.cedente_cod_transmissao = kwargs.pop('cedente_cod_transmissao', "")
+
         self.data_documento = kwargs.pop('data_documento', "")
-        self.data_processamento = kwargs.pop('data_processamento',
-                                             datetime.date.today())
+        self.data_processamento = kwargs.pop('data_processamento', datetime.date.today())
         self.data_vencimento = kwargs.pop('data_vencimento', "")
         self.especie = kwargs.pop('especie', "R$")
         self.especie_documento = kwargs.pop('especie_documento', "")
-        self.local_pagamento = kwargs.pop(
-            'local_pagamento', "Pagável em qualquer banco até o vencimento")
+        self.local_pagamento = kwargs.pop('local_pagamento', "Pagável em qualquer banco até o vencimento")
         self.logo_image = kwargs.pop('logo_image', "")
         self.moeda = kwargs.pop('moeda', "9")
         self.numero_documento = kwargs.pop('numero_do_documento', "")
         self.quantidade = kwargs.pop('quantidade', "")
         self.sacado_nome = kwargs.pop('sacado_nome', "")
-        self.sacado_documento = kwargs.pop('sacado_documento', "")
+        self.sacado_documento = kwargs.pop('sacado_documento', "") # cnpj / cpf
         self.sacado_cidade = kwargs.pop('sacado_cidade', "")
         self.sacado_uf = kwargs.pop('sacado_uf', "")
         self.sacado_endereco = kwargs.pop('sacado_endereco', "")
+        self.sacado_endereco_ns = kwargs.pop('sacado_endereco_ns', "")
+        self.sacado_endereco_number = kwargs.pop('sacado_endereco_number', "")
+        self.sacado_endereco_complemento = kwargs.pop('sacado_endereco_complemento', "")
         self.sacado_bairro = kwargs.pop('sacado_bairro', "")
         self.sacado_cep = kwargs.pop('sacado_cep', "")
+        self.sacado_fisica_juridica = kwargs.pop('sacado_fisica_juridica', "")
+        self.demonstrativo_fatura = kwargs.pop('demonstrativo_fatura', "")
+
         if kwargs:
             raise TypeError("Paramêtro(s) desconhecido: %r" % (kwargs, ))
+            
         self._cedente_endereco = None
         self._demonstrativo = []
         self._instrucoes = []
@@ -169,6 +187,7 @@ class BoletoData(object):
         self._valor = None
         self._valor_documento = None
         self.label_cedente = 'Agência/Código beneficiário'
+        self.boleto_file = None
 
     @property
     def barcode(self):
