@@ -153,6 +153,7 @@ class BoletoData(object):
         self.cedente_modalidade = kwargs.pop('cedente_modalidade', "")
         self.cedente_telefone = kwargs.pop('cedente_telefone', "")
         self.cedente_cod_transmissao = kwargs.pop('cedente_cod_transmissao', "")
+        self.cedente_logo_empresa = kwargs.pop('cedente_logo_empresa', "")
 
         self.data_documento = kwargs.pop('data_documento', "")
         self.data_processamento = kwargs.pop('data_processamento', datetime.date.today())
