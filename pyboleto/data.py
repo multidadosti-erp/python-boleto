@@ -165,6 +165,23 @@ class BoletoData(object):
         self.moeda = kwargs.pop('moeda', "9")
         self.numero_documento = kwargs.pop('numero_do_documento', "")
         self.quantidade = kwargs.pop('quantidade', "")
+
+        # Sacador Avalista
+        self.avalista_nome = kwargs.pop('avalista_nome', "")
+        self.avalista_cnpjcpf = kwargs.pop('avalista_cnpjcpf', "")
+        self.avalista_logradouro = kwargs.pop('avalista_logradouro', "")
+        self.avalista_logradouro_ns = kwargs.pop('avalista_logradouro_ns', "")
+        self.avalista_numero = kwargs.pop('avalista_numero', "")
+        self.avalista_complemento = kwargs.pop('avalista_complemento', "")
+        self.avalista_bairro = kwargs.pop('avalista_bairro', "")
+        self.avalista_cidade = kwargs.pop('avalista_cidade', "")
+        self.avalista_uf = kwargs.pop('avalista_uf', "")
+        self.avalista_cep = kwargs.pop('avalista_cep', "")
+        self.avalista_email = kwargs.pop('avalista_email', "")
+        self.avalista_fone = kwargs.pop('avalista_fone', "")
+        self.avalista_inscricao_nr = kwargs.pop('avalista_inscricao_nr', "")
+
+        # Sacado / Cliente
         self.sacado_nome = kwargs.pop('sacado_nome', "")
         self.sacado_documento = kwargs.pop('sacado_documento', "") # cnpj / cpf
         self.sacado_cidade = kwargs.pop('sacado_cidade', "")
@@ -176,6 +193,10 @@ class BoletoData(object):
         self.sacado_bairro = kwargs.pop('sacado_bairro', "")
         self.sacado_cep = kwargs.pop('sacado_cep', "")
         self.sacado_fisica_juridica = kwargs.pop('sacado_fisica_juridica', "")
+        self.sacado_email = kwargs.pop('sacado_email', "")
+        self.sacado_fone = kwargs.pop('sacado_fone', "")
+        self.sacado_inscricao_nr = kwargs.pop('sacado_inscricao_nr', "")
+
         self.demonstrativo_fatura = kwargs.pop('demonstrativo_fatura', "")
 
         if kwargs:
