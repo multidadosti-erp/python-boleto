@@ -146,6 +146,7 @@ class BoletoData(object):
         self.cedente_documento = kwargs.pop('cedente_documento', "")
         self.codigo_banco = kwargs.pop('codigo_banco', "")
         self.codigo_banco_acbr = kwargs.pop('codigo_banco_acbr', "")
+        self.versao_arquivo = kwargs.pop('versao_arquivo', "")
         self.conta_cedente = kwargs.pop('conta_cedente', "")
         self.conta_digito_cedente = kwargs.pop('conta_digito_cedente', "")
         self.cedente_convenio = kwargs.pop('cedente_convenio', "")
